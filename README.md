@@ -54,14 +54,14 @@ openssl pkey -in keys/curve25519.pem -text -noout
 ### 2.2 SUPI concealing using the public key
 ```shell
 python3 concealing_tool.py --conceal \
-    --supi_type 0 \
-	--routing_indicator 0000 \
-	--scheme_id 1 \
-	--key_id 1 \
-	--plmn 72417 \
-	--msin 0000000001 \
-    --json_file suci_json.json \
-	--public_key_file keys/curve25519_pub.pem
+   --supi_type 0 \
+   --routing_indicator 0000 \
+   --scheme_id 1 \
+   --key_id 1 \
+   --plmn 72417 \
+   --msin 0000000001 \
+   --json_file suci_json.json \
+   --public_key_file keys/curve25519_pub.pem
 ```
 
 ### 2.3 Deconcealing SUCI to SUPI using the private key
@@ -105,14 +105,14 @@ openssl ec -in keys/secp256r1.pem -text -noout -conv_form compressed
 ### 3.2 SUPI concealing using the public key
 ```shell
 python3 concealing_tool.py --conceal \
-    --supi_type 0 \
-	--routing_indicator 0000 \
-	--scheme_id 2 \
-	--key_id 2 \
-	--plmn 72417 \
-	--msin 0000000001 \
-    --json_file suci_json.json \
-	--public_key_file keys/secp256r1_pub.pem
+   --supi_type 0 \
+   --routing_indicator 0000 \
+   --scheme_id 2 \
+   --key_id 2 \
+   --plmn 72417 \
+   --msin 0000000001 \
+   --json_file suci_json.json \
+   --public_key_file keys/secp256r1_pub.pem
 ```
 
 ### 3.3 Deconcealing SUCI to SUPI using the private key
