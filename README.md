@@ -66,7 +66,7 @@ python3 concealing_tool.py --conceal \
 
 ### 2.3 Deconcealing SUCI to SUPI using the private key
 
-Using the suci string:
+Using the suci string (using the suci string generated in the previous step):
 ```shell
 python3 concealing_tool.py --deconceal \
    --suci_string suci-0-724-17-0000-1-1-2682E6EE2AB2D98557C6B69438D47970A9BD5ACB0A3C4EB61D9FE497414DCA783556227BD4BC80E8320F95985D  \
@@ -117,7 +117,7 @@ python3 concealing_tool.py --conceal \
 
 ### 3.3 Deconcealing SUCI to SUPI using the private key
 
-Using the suci string:
+Using the suci string (using the suci string generated in the previous step):
 ```shell
 python3 concealing_tool.py --deconceal \
    --suci_string suci-0-724-17-0000-2-2-0227A73174F1A9383CBAE83BA5852D1ACCADD55AEC7333BC47B40A02DAD99AD15BF8412D19A715497ED4A1C1B3B1  \
