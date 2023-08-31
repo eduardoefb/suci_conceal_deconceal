@@ -2,7 +2,7 @@
 ## 1 Install the required dependencies
 Create a virtual environment to install the necessary libraries:
 ```shell
-python -m venv env
+python3 -m venv env
 ```
 
 Activate the environment:
@@ -13,6 +13,7 @@ source env/bin/activate
 Install the required libraries
 ```shell
 /bin/bash << EOF 
+pip3 install setuptools_rust
 pip3 install cryptography
 cwd=`pwd`
 tmpdir=`mktemp -d`
