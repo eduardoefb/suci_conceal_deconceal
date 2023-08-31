@@ -1,3 +1,4 @@
+
 ## 1 Install the required dependencies
 Create a virtual environment to install the necessary libraries:
 ```shell
@@ -37,7 +38,7 @@ EOF
 ### 2.1 Create the private and public keys:
 Create the private key:
 ```shell
-mkdir keys
+if [ -f keys ]; then \rm -f keys; fi; if [ ! -d keys ]; then mkdir keys; fi
 openssl genpkey -algorithm X25519 -out keys/curve25519.pem
 ```
 
@@ -85,7 +86,7 @@ python3 concealing_tool.py --deconceal \
 ### 3.1 Create the private and public keys:
 Create the private key:
 ```shell
-mkdir keys
+if [ -f keys ]; then \rm -f keys; fi; if [ ! -d keys ]; then mkdir keys; fi
 openssl ecparam -name secp256k1 -out keys/secp256k1_tmp.pem
 openssl ecparam -name prime256v1 -in keys/secp256k1_tmp.pem -genkey -noout -out keys/secp256k1-key_tmp.pem 
 cat keys/secp256k1_tmp.pem keys/secp256k1-key_tmp.pem > keys/secp256r1.pem
