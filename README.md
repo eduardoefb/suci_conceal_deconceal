@@ -73,7 +73,7 @@ python3 concealing_tool.py --deconceal \
    --private_key_file keys/curve25519.pem
 ```
 
-Using the suci_json file generated in the 2.2 with --json_file option:
+Using the `suci_json.json` file generated in the 2.2 with `--json_file` option:
 ```shell
 python3 concealing_tool.py --deconceal \
    --json_file suci_json.json --private_key_file keys/curve25519.pem 
@@ -124,7 +124,7 @@ python3 concealing_tool.py --deconceal \
    --private_key_file keys/secp256r1.pem
 ```
 
-Using the suci_json file generated in the 3.2 with --json_file option:
+Using the `suci_json.json` file generated in the 3.2 with `--json_file` option:
 ```shell
 python3 concealing_tool.py --deconceal \
    --json_file suci_json.json --private_key_file keys/secp256r1.pem
