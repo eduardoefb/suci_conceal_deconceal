@@ -1,6 +1,6 @@
 ## 1 Requirements:
 - Linux;
-- python3, python3-pip and python3-venv;
+- python3, python3-pip, python3-venv and git;
 - OpenSSL with supported `curve25519` and `secp256k1` algorithms.
 
 ## 2 Install the required dependencies
