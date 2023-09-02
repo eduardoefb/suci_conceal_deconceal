@@ -1,5 +1,9 @@
+## 1 Requirements:
+- Linux
+- python3 and python3-venv 
+- OpenSSL with supported curve25519 and secp256k1 algorithms
 
-## 1 Install the required dependencies
+## 2 Install the required dependencies
 Create a virtual environment to install the necessary libraries:
 ```shell
 python3 -m venv env
@@ -34,9 +38,9 @@ EOF
 
 ```
 
-## 2 curve25519 key (Profile A)
+## 3 curve25519 key (Profile A)
 
-### 2.1 Create the private and public keys:
+### 3.1 Create the private and public keys:
 Create the private key:
 ```shell
 if [ -f keys ]; then \rm -f keys; fi; if [ ! -d keys ]; then mkdir keys; fi
@@ -53,7 +57,7 @@ To retrieve the bytes for both the public and private keys:
 openssl pkey -in keys/curve25519.pem -text -noout
 ```
 
-### 2.2 SUPI concealing using the public key
+### 3.2 SUPI concealing using the public key
 ```shell
 python3 concealing_tool.py --conceal \
    --supi_type 0 \
@@ -66,7 +70,7 @@ python3 concealing_tool.py --conceal \
    --public_key_file keys/curve25519_pub.pem
 ```
 
-### 2.3 Deconcealing SUCI to SUPI using the private key
+### 3.3 Deconcealing SUCI to SUPI using the private key
 
 Using the suci string (using the suci string generated in the previous step):
 ```shell
@@ -75,16 +79,16 @@ python3 concealing_tool.py --deconceal \
    --private_key_file keys/curve25519.pem
 ```
 
-Using the `suci_json.json` file generated in the 2.2 with `--json_file` option:
+Using the `suci_json.json` file generated in the 3.2 with `--json_file` option:
 ```shell
 python3 concealing_tool.py --deconceal \
    --json_file suci_json.json --private_key_file keys/curve25519.pem 
 ```
 
 
-## 3 secp256k1 key (Profile B)
+## 4 secp256k1 key (Profile B)
 
-### 3.1 Create the private and public keys:
+### 4.1 Create the private and public keys:
 Create the private key:
 ```shell
 if [ -f keys ]; then \rm -f keys; fi; if [ ! -d keys ]; then mkdir keys; fi
@@ -104,7 +108,7 @@ To retrieve the bytes for both the public and private keys:
 openssl ec -in keys/secp256r1.pem -text -noout -conv_form compressed
 ```
 
-### 3.2 SUPI concealing using the public key
+### 4.2 SUPI concealing using the public key
 ```shell
 python3 concealing_tool.py --conceal \
    --supi_type 0 \
@@ -117,7 +121,7 @@ python3 concealing_tool.py --conceal \
    --public_key_file keys/secp256r1_pub.pem
 ```
 
-### 3.3 Deconcealing SUCI to SUPI using the private key
+### 4.3 Deconcealing SUCI to SUPI using the private key
 
 Using the suci string (using the suci string generated in the previous step):
 ```shell
@@ -126,7 +130,7 @@ python3 concealing_tool.py --deconceal \
    --private_key_file keys/secp256r1.pem
 ```
 
-Using the `suci_json.json` file generated in the 3.2 with `--json_file` option:
+Using the `suci_json.json` file generated in the 4.2 with `--json_file` option:
 ```shell
 python3 concealing_tool.py --deconceal \
    --json_file suci_json.json --private_key_file keys/secp256r1.pem
