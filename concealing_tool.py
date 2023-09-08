@@ -74,14 +74,12 @@ def generate_suci(
     create_suci_json(json_file, suci_string, net_string)
     return suci  
 
-
 def create_suci_json(json_file, suci_string, net_string):
     if json_file is not None:
         json_fp = open(str(json_file), "w")
         json_str = """{\n   "supiOrSuci": \"""" + str(suci_string) + """\",\n   "servingNetworkName": \""""+ str(net_string) +"""\"\n}\n"""
         json_fp.write(json_str)
         json_fp.close()    
-
 
 def get_suci_from_json(json_file):
     if os.path.exists(json_file) and args.deconceal:
@@ -109,10 +107,7 @@ def generate_suci_from_str(
     key_id = int(suci_str.split("-")[6])
     pscheme_output = suci_str.split("-")[7]
 
-    
-    
     # Generate the supi encrypted:
-
     if scheme_id == 0:
         suci = None
         suci_string = f"suci-{supi_type}-{plmn[:3]}-{plmn[3:5]}-{routing_indicator}-{scheme_id}-0-{msin}"        
@@ -150,7 +145,6 @@ def generate_suci_from_str(
         enc_msin_text = binascii.hexlify(ue_encmsin).decode().upper()
         mac_text = binascii.hexlify(ue_mac).decode().upper()
     
-
     if scheme_id in [1, 2]:
         print(f"\n####################SUCI###############\n{suci}")
     
@@ -188,7 +182,6 @@ def decode_suci(scheme_id = None, hn_privkey = None, imsi = None, suci = None):
     except:        
         dec_imsi = "***Deconcealing error!***"
         
-
     print(f"\n##########DECONCEALED SUPI#############\n{dec_imsi}")
     return(dec_imsi)
 
@@ -215,7 +208,6 @@ def load_private_key(scheme_id = None, private_key_file = None):
     
     return hn_privkey, hn_pubkey
 
-
 def load_public_key(scheme_id = None, public_key_file = None):
     if scheme_id in [1, 2]:
         with open(str(public_key_file), "rb") as key_file:
@@ -233,12 +225,10 @@ def load_public_key(scheme_id = None, public_key_file = None):
         hn_pubkey = hn_pubkey[26:]
     return hn_pubkey
 
-
 # Parser:
 parser = argparse.ArgumentParser(description='Input data for open5gs')
 parser.add_argument('--conceal', action='store_true', help='Use this option to conceal')
 parser.add_argument('--deconceal', action='store_true', help='Use this option to deconceal')
-
 parser.add_argument('--supi_type', type=str, required=False, help='SUPI type. 0 = IMSI, 1 = Network Access Identifier (NAI)')
 parser.add_argument('--routing_indicator', type=str, required=False, help='Routing indicator. Ex: 0000')
 parser.add_argument('--scheme_id', type=int, required=False, help='Scheme ID: 0 = null-scheme, 1 = Profile A, 2 = Profile B', choices=[0, 1, 2])
@@ -250,11 +240,7 @@ parser.add_argument('--public_key_file', type=str, required=False, help='Public 
 parser.add_argument('--suci_string', type=str, required=False, help='Suci string')
 parser.add_argument('--json_file', type=str, required=False, help='JSON file for suci input - for deconcealing, or for output in the concealing')
 
-
-
 args = parser.parse_args()
-
-
 
 if args.conceal and args.deconceal:
     parser.error('--conceal and --deconceal can\'t be used at the same time')
@@ -361,4 +347,3 @@ else:
 # Decrypt suci
 if hn_privkey:
     imsi = decode_suci(scheme_id = prot_scheme_id, hn_privkey = hn_privkey, suci = suci)
-
