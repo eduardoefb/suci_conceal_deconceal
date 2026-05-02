@@ -32,10 +32,8 @@ def generate_suci(
     # Generate the supi encrypted:
     if scheme_id == 0:
         suci = None
-
         suci_string = f"suci-{supi_type}-{plmn[:3]}-{plmn[3:5]}-{routing_indicator}-{scheme_id}-0-{msin}"
-        
-        #suci_string f"suci-0-724-17-0000-0-0-0000000001"
+
     elif scheme_id == 1:
         ue_ecies = ECIES_UE(profile='A')
     elif scheme_id == 2:
