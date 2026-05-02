@@ -1,0 +1,8 @@
+env/
+.venv/
+__pycache__/
+*.pyc
+.python-version
+
+# Generated key material (use --gen-keys or OpenSSL)
+keys/*.pem
