@@ -5,4 +5,4 @@ __pycache__/
 .python-version
 
 # Generated key material (use --gen-keys or OpenSSL)
-keys/*.pem
+keys/
